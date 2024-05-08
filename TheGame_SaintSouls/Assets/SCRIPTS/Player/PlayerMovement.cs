@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = 9.8f;
     public float jumpForce;
     public float speed;
+    public float acseleration;
 
     private CharacterController _characterController;
     private Vector3 _moveVector;
@@ -33,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) 
+            speed = acseleration;
+
         _characterController.Move(_moveVector * speed * Time.fixedDeltaTime);
 
         _fallVelocity += gravity * Time.fixedDeltaTime;
