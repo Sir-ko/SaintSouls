@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float gravity = 9.8f;
-    public float jumpForce;
     public float speed;
     public float acseleration;
 
     private CharacterController _characterController;
     private Vector3 _moveVector;
-
-    private float _fallVelocity = 0;
     
     void Start()
     {
@@ -23,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         GetMoveVector();
-        Jump();
     }
 
 
@@ -38,14 +33,6 @@ public class PlayerMovement : MonoBehaviour
             speed = acseleration;
 
         _characterController.Move(_moveVector * speed * Time.fixedDeltaTime);
-
-        _fallVelocity += gravity * Time.fixedDeltaTime;
-        _characterController.Move(Vector3.down * _fallVelocity * Time.fixedDeltaTime);
-
-        if (_characterController.isGrounded)
-        {
-            _fallVelocity = 0;
-        }
     }
 
     private void GetMoveVector()
@@ -67,13 +54,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             _moveVector += transform.right;
-        }
-    }
-    private void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
-        {
-            _fallVelocity = -jumpForce;
         }
     }
 }

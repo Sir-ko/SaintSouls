@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject _pausePanel;
+    public Slider MouseSensetivity;
+    public Slider OverallVolume;
+    public CameraRotation playerCamera;
+
+    public float volume = 0.5f;
 
     bool _isPaused = false;
+    
 
     private void Start()
     {
         _isPaused = false;
         _pausePanel.SetActive(false);
+        MouseSensetivity.value = PlayerPrefs.GetFloat("MouseSensetivity", 0.5f);
     }
     void Update()
     {
@@ -49,5 +57,12 @@ public class Pause : MonoBehaviour
     public bool isPaused()
     {
         return _isPaused;
+    }
+    public void ChangePreferences()
+    {
+        PlayerPrefs.SetFloat("MouseSensetivity", MouseSensetivity.value);
+        PlayerPrefs.SetFloat("Volume", volume);
+        playerCamera.ChangeSpeed();
+        PlayerPrefs.Save();
     }
 }
