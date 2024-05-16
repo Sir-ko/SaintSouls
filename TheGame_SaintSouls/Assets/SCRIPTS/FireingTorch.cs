@@ -10,9 +10,13 @@ public class FireingTorch : MonoBehaviour {
 
     public float distanceToLight;
     public bool shouldWork = false;
+    public bool hasWaited;
+    public float timeToNewActivation2 = 3f;
+    public float timeHasPastSince = 0f;
 
     private void Start()
     {
+        hasWaited = true;
         if(shouldWork == false) {
             LightPrefab.SetActive(false);
             FirePrefab.SetActive(false);
@@ -26,14 +30,25 @@ public class FireingTorch : MonoBehaviour {
 
     void Update()
     {
-        
         if (Vector3.Distance(Camera.main.transform.position, transform.position) <= distanceToLight)
         {
-            if (Input.GetKey(KeyCode.F))
+            if (hasWaited == false)
             {
-                LightPrefab.SetActive(!LightPrefab.active);
-                FirePrefab.SetActive(!LightPrefab.active);
-                Debug.Log("done");
+                timeHasPastSince += Time.deltaTime;
+                if (timeHasPastSince > timeToNewActivation2)
+                {
+                    hasWaited = true;
+                }
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.F))
+                {
+                    LightPrefab.SetActive(!LightPrefab.active);
+                    FirePrefab.SetActive(LightPrefab.active);
+                    timeHasPastSince = 0f;
+                    hasWaited = false;
+                }
             }
         }
     }

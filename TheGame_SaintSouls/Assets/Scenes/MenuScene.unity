@@ -3341,6 +3341,7 @@ MonoBehaviour:
   AnimatorDoor: {fileID: 6466863785751216583}
   MouseSensetivity: {fileID: 553596105}
   OverallVolume: {fileID: 0}
+  volume: 0.5
   difficulty: 0
 --- !u!4 &728722181 stripped
 Transform:
@@ -4651,6 +4652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (Working)
       objectReference: {fileID: 0}
+    - target: {fileID: 5443423186012125831, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: shouldWork
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5233a2537e09a29488521080a063343c, type: 3}
 --- !u!4 &979613089 stripped
@@ -5699,6 +5705,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch (Working) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443423186012125831, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: shouldWork
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5233a2537e09a29488521080a063343c, type: 3}
