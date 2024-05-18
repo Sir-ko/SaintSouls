@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public float acseleration;
+    public AudioSource moveSound;
 
     private CharacterController _characterController;
     private Vector3 _moveVector;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         GetMoveVector();
+        SoundStep();
     }
 
 
@@ -56,4 +58,19 @@ public class PlayerMovement : MonoBehaviour
             _moveVector += transform.right;
         }
     }
+    
+
+    void SoundStep()
+    {
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.35f || Mathf.Abs(Input.GetAxis("Vertical")) > 0.35f)
+        {
+            if (moveSound.isPlaying) return;
+            moveSound.Play();
+        }
+        else
+        {
+            moveSound.Stop();
+        }
+    }
 }
+
