@@ -20,6 +20,7 @@ public class SaveController : MonoBehaviour
     {
         while (true)
         {
+            PlayerPrefs.SetInt("Save", SceneManager.GetActiveScene().buildIndex);
             PlayerPrefs.SetFloat("player_x", player.transform.position.x);
             PlayerPrefs.SetFloat("player_y", player.transform.position.y);
             PlayerPrefs.SetFloat("player_z", player.transform.position.z);

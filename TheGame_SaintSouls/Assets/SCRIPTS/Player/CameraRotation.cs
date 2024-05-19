@@ -9,16 +9,16 @@ public class CameraRotation : MonoBehaviour
     public float minAngle = -15;
     public float maxAngle = 60;
 
-    public float RotationSpeed = 0.5f;
+    public float Rotation_nowSpeed = 0.5f;
 
     private void Start()
     {
-        ChangeSpeed();
+        Change_nowSpeed();
     }
     void Update()
     {
-        var newAngleY = transform.localEulerAngles.y + Time.deltaTime * RotationSpeed * Input.GetAxis("Mouse X");
-        var newAngleX = CameraAxisTransform.localEulerAngles.x - Time.deltaTime * RotationSpeed * Input.GetAxis("Mouse Y");
+        var newAngleY = transform.localEulerAngles.y + Time.deltaTime * Rotation_nowSpeed * Input.GetAxis("Mouse X");
+        var newAngleX = CameraAxisTransform.localEulerAngles.x - Time.deltaTime * Rotation_nowSpeed * Input.GetAxis("Mouse Y");
 
         if (newAngleX > 180)
             newAngleX -= 360;
@@ -29,10 +29,10 @@ public class CameraRotation : MonoBehaviour
         CameraAxisTransform.localEulerAngles = new Vector3(newAngleX, 0, 0);
     }
 
-    public void ChangeSpeed()
+    public void Change_nowSpeed()
     {
-        RotationSpeed = PlayerPrefs.GetFloat("MouseSensetivity", 0.5f);
-        Mathf.Lerp(0.7f, 0.2f, RotationSpeed);
-        RotationSpeed *= 100;
+        Rotation_nowSpeed = PlayerPrefs.GetFloat("MouseSensetivity", 0.5f);
+        Mathf.Lerp(0.7f, 0.2f, Rotation_nowSpeed);
+        Rotation_nowSpeed *= 100;
     }
 }

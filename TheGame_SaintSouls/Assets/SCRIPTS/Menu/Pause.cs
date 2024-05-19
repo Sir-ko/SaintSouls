@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class Pause : MonoBehaviour
     public Slider MouseSensetivity;
     public Slider OverallVolume;
     public CameraRotation playerCamera;
+    public GameObject player;
 
     public float volume = 0.5f;
 
@@ -50,6 +52,10 @@ public class Pause : MonoBehaviour
     }
     public void LoadMainMenu()
     {
+        /*PlayerPrefs.SetFloat("Save", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetFloat("player_x", player.transform.position.x);
+        PlayerPrefs.SetFloat("player_y", player.transform.position.y);
+        PlayerPrefs.SetFloat("player_z", player.transform.position.z);*/
         _isPaused = false;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
@@ -62,7 +68,7 @@ public class Pause : MonoBehaviour
     {
         PlayerPrefs.SetFloat("MouseSensetivity", MouseSensetivity.value);
         PlayerPrefs.SetFloat("Volume", volume);
-        playerCamera.ChangeSpeed();
+        playerCamera.Change_nowSpeed();
         PlayerPrefs.Save();
     }
 }

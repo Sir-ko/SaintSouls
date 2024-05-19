@@ -55,7 +55,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   CameraAxisTransform: {fileID: 4221592763337159618}
   minAngle: -15
   maxAngle: 30
-  RotationSpeed: 50
+  Rotation_nowSpeed: 0.5
 --- !u!114 &4221592763241844692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,9 +165,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7842942b9804a064bb01e6e9d8b11dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  acseleration: 8
+  gravity: 9.8
+  _fallVelocity: 0
+  speed: 2
+  acseleration: 4
   moveSound: {fileID: 6811463241888047422}
+  Player: {fileID: 4221592763241844688}
+  _nowSpeed: 0
 --- !u!82 &6811463241888047422
 AudioSource:
   m_ObjectHideFlags: 0

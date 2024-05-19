@@ -960,6 +960,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e8d992a6caf984c8064ae1d3940c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogeText: {fileID: 0}
+  NoGoTrigger: {fileID: 0}
+  hasIntroduced: 1
+  secBeforeDeletingInstructions: 15
 --- !u!1 &5220000326713517845
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ public class Rotate : MonoBehaviour {
 
 	[Tooltip ("Axis of rotation - use 0 or 1 only")]
 	public Vector3 _rotationAxis = new Vector3 (0,1,0);
-	[Tooltip ("Speed of rotation in degrees per second")]
-	public float _rotationSpeed = 90;
+	[Tooltip ("_nowSpeed of rotation in degrees per second")]
+	public float _rotation_nowSpeed = 90;
 	
 	private Transform _transform;
 	
@@ -25,7 +25,7 @@ public class Rotate : MonoBehaviour {
 	
 	void Update ()
 	{
-		_transform.Rotate (_rotationAxis * _rotationSpeed * Time.deltaTime);
+		_transform.Rotate (_rotationAxis * _rotation_nowSpeed * Time.deltaTime);
 	}
 }
 

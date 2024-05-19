@@ -15,7 +15,7 @@ public class FlickLight : MonoBehaviour
     public float max = 2.0f;
     [Space(20)]
     private float _flickIntensity;
-    [Tooltip("The timing of the speed for flick Intensity of the light")]
+    [Tooltip("The timing of the _nowSpeed for flick Intensity of the light")]
     public float timer = 1.0f;
     [Tooltip("The waiting time for the light to flicker")]
     public float smooth = 0.1f;
@@ -23,10 +23,10 @@ public class FlickLight : MonoBehaviour
     [Header("Set a false movement of the shadow")]
     [Space(10)]
     public bool moveShadow = false;
-    [Tooltip("The speed of the movement of light")]
-    public float speedMoveShadow = 1f;
-    [Tooltip("The speed smooth of the movement of light")]
-    public float speedSmoothShadow = 50f;
+    [Tooltip("The _nowSpeed of the movement of light")]
+    public float _nowSpeedMoveShadow = 1f;
+    [Tooltip("The _nowSpeed smooth of the movement of light")]
+    public float _nowSpeedSmoothShadow = 50f;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +62,7 @@ public class FlickLight : MonoBehaviour
     {
         if (moveShadow)
         {
-            lig.transform.position = _startPosLight + (Random.insideUnitSphere * speedMoveShadow / speedSmoothShadow);
+            lig.transform.position = _startPosLight + (Random.insideUnitSphere * _nowSpeedMoveShadow / _nowSpeedSmoothShadow);
         }
         else
         {

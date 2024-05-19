@@ -2,15 +2,15 @@ Shader "TextMeshPro/Distance Field (Surface)" {
 
 Properties {
 	_FaceTex			("Fill Texture", 2D) = "white" {}
-	_FaceUVSpeedX		("Face UV Speed X", Range(-5, 5)) = 0.0
-	_FaceUVSpeedY		("Face UV Speed Y", Range(-5, 5)) = 0.0
+	_FaceUV_nowSpeedX		("Face UV _nowSpeed X", Range(-5, 5)) = 0.0
+	_FaceUV_nowSpeedY		("Face UV _nowSpeed Y", Range(-5, 5)) = 0.0
 	[HDR]_FaceColor		("Fill Color", Color) = (1,1,1,1)
 	_FaceDilate			("Face Dilate", Range(-1,1)) = 0
 
 	[HDR]_OutlineColor	("Outline Color", Color) = (0,0,0,1)
 	_OutlineTex			("Outline Texture", 2D) = "white" {}
-	_OutlineUVSpeedX	("Outline UV Speed X", Range(-5, 5)) = 0.0
-	_OutlineUVSpeedY	("Outline UV Speed Y", Range(-5, 5)) = 0.0
+	_OutlineUV_nowSpeedX	("Outline UV _nowSpeed X", Range(-5, 5)) = 0.0
+	_OutlineUV_nowSpeedY	("Outline UV _nowSpeed Y", Range(-5, 5)) = 0.0
 	_OutlineWidth		("Outline Thickness", Range(0, 1)) = 0
 	_OutlineSoftness	("Outline Softness", Range(0,1)) = 0
 

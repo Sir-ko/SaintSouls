@@ -49,9 +49,10 @@ public class MenuManager : MonoBehaviour
     public void LoadFromLastSave() 
     {
         SceneManager.LoadScene(PlayerPrefs.GetInt("Save", 1));
-        PlayerPrefs.GetFloat("player_x", 15.52f);
+        /*PlayerPrefs.GetFloat("player_x", 15.52f);
         PlayerPrefs.GetFloat("player_y", 0f);
         PlayerPrefs.GetFloat("player_z", 0.469f);
+        */
     }
     public void FromLastSave()
     {
