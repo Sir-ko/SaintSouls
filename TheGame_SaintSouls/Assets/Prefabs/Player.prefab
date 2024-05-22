@@ -171,6 +171,7 @@ MonoBehaviour:
   acseleration: 4
   moveSound: {fileID: 6811463241888047422}
   Player: {fileID: 4221592763241844688}
+  PauseMenu: {fileID: 0}
   _nowSpeed: 0
 --- !u!82 &6811463241888047422
 AudioSource:

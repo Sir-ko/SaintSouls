@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float acseleration;
     public AudioSource moveSound;
     public GameObject Player;
+    public GameObject PauseMenu;
+    public GameObject SettingsMenu;
 
     public float _nowSpeed;
     private CharacterController _characterController;
@@ -81,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.35f || Mathf.Abs(Input.GetAxis("Vertical")) > 0.35f)
         {
             if (moveSound.isPlaying) return;
+            if (Time.timeScale != 0)
             moveSound.Play();
         }
         else

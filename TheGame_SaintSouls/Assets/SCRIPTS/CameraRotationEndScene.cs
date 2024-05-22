@@ -10,6 +10,8 @@ public class CameraRotationEndScene : MonoBehaviour
     public Transform endEnemyPosition;
     public float LerpValue;
     public float time;
+    public float newTime = 2;
+    public float expectedTime;
     public float duration;
     public PlayerMovement playerMovement;
     public CameraRotation cameraRotation;
@@ -39,9 +41,10 @@ public class CameraRotationEndScene : MonoBehaviour
             time += Time.deltaTime;
             Enemy.transform.position = Vector3.Lerp(startValueEnemy, endEnemyPosition.position, time / duration);
             Enemy.transform.rotation = Quaternion.Lerp(startValueRotation, endEnemyPosition.rotation, time / duration);
+            Enemy.transform.position += Vector3.right * Time.deltaTime;
             yield return null;
         }
-        yield return new WaitForSecondsRealtime(2);
+        
         BlackSreen.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
         SceneManager.LoadScene(0);

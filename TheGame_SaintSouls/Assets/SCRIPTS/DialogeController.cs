@@ -13,6 +13,7 @@ public class DialogeController : MonoBehaviour
     public GameObject Player;
     public GameObject pointOfStart;
     public GameObject PauseMenu;
+    public GameObject SettingsMenu;
 
     public bool hasIntroduced = true;
     public float secBeforeDeletingInstructions = 15f;
@@ -40,15 +41,10 @@ public class DialogeController : MonoBehaviour
 
     private void Update()
     {
-        if(PauseMenu.active == true)
+        if(PauseMenu.active == true || SettingsMenu.active == true)
         {
-            DialogeText.alpha = 0;
-            InstructionsText.alpha = 0;
-        }
-        else
-        {
-            DialogeText.alpha = 1;
-            InstructionsText.alpha = 1;
+            DialogeText.enabled = false;
+            InstructionsText.enabled = false;
         }
     }
 
