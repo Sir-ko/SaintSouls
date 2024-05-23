@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject _pausePanel;
+    [SerializeField] GameObject _settingsPanel;
     public Slider MouseSensetivity;
     public Slider OverallVolume;
     public CameraRotation playerCamera;
@@ -46,16 +47,13 @@ public class Pause : MonoBehaviour
 
     public void ResumeGame()
     {
+        _settingsPanel.SetActive(false);
         _pausePanel.SetActive(false);
         Time.timeScale = 1.0f;
         _isPaused = false;
     }
     public void LoadMainMenu()
     {
-        /*PlayerPrefs.SetFloat("Save", SceneManager.GetActiveScene().buildIndex);
-        PlayerPrefs.SetFloat("player_x", player.transform.position.x);
-        PlayerPrefs.SetFloat("player_y", player.transform.position.y);
-        PlayerPrefs.SetFloat("player_z", player.transform.position.z);*/
         _isPaused = false;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);

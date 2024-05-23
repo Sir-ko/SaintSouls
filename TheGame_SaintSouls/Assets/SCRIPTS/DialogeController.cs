@@ -20,7 +20,7 @@ public class DialogeController : MonoBehaviour
 
     private void Start()
     {
-        
+        PlayerPrefs.SetInt("WasLastSceneMenu", 1);
         DialogeText.enabled = true;
         InstructionsText.enabled = true;
         if (SceneManager.GetActiveScene().buildIndex == 1)

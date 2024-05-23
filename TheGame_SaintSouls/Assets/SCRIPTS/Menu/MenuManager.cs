@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
+        PlayerPrefs.SetInt("WasLastSceneMenu", 1);
         PlayerPrefs.SetFloat("MouseSensetivity", 0.5f);
         MouseSensetivity.value = 0.5f;
     }
@@ -39,7 +40,10 @@ public class MenuManager : MonoBehaviour
     {
         AnimatorCamera.SetTrigger("PlayCamera");
         AnimatorDoor.SetTrigger("PlayDoor");
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Save", 1);
+        PlayerPrefs.SetInt("NewGame", 1);
+        PlayerPrefs.Save();
         Invoke("LoadFirstLevel", 3.2f); //надо еще все сейв файлы обнулить бf
     }
     public void LoadFirstLevel()
@@ -49,15 +53,12 @@ public class MenuManager : MonoBehaviour
     public void LoadFromLastSave() 
     {
         SceneManager.LoadScene(PlayerPrefs.GetInt("Save", 1));
-        /*PlayerPrefs.GetFloat("player_x", 15.52f);
-        PlayerPrefs.GetFloat("player_y", 0f);
-        PlayerPrefs.GetFloat("player_z", 0.469f);
-        */
     }
     public void FromLastSave()
     {
         AnimatorCamera.SetTrigger("PlayCamera");
         AnimatorDoor.SetTrigger("PlayDoor");
+        PlayerPrefs.SetInt("NewGame", 0);
         Invoke("LoadFromLastSave", 3.2f);
     }
 

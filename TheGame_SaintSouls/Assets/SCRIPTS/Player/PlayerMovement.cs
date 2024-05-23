@@ -18,10 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController _characterController;
     private Vector3 _moveVector;
     
-    void Awake()
+    void Start()
     {
-        Player.transform.position = new Vector3(PlayerPrefs.GetFloat("player_x", 15.51f), PlayerPrefs.GetFloat("player_y", 0f),
-                                                               PlayerPrefs.GetFloat("player_z", 0.469f));
         _characterController = GetComponent<CharacterController>();
     }
 
@@ -80,10 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
     void SoundStep()
     {
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.35f || Mathf.Abs(Input.GetAxis("Vertical")) > 0.35f)
+        if ((Mathf.Abs(Input.GetAxis("Horizontal")) > 0.35f || Mathf.Abs(Input.GetAxis("Vertical")) > 0.35f) && Time.timeScale != 0f)
         {
             if (moveSound.isPlaying) return;
-            if (Time.timeScale != 0)
             moveSound.Play();
         }
         else

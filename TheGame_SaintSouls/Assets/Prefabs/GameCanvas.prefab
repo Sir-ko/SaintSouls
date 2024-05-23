@@ -2679,6 +2679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pausePanel: {fileID: 5212244505114257638}
+  _settingsPanel: {fileID: 1236022644950717753}
   MouseSensetivity: {fileID: 1236022644483916481}
   OverallVolume: {fileID: 1236022643332083471}
   playerCamera: {fileID: 0}
