@@ -88,5 +88,14 @@ public class PlayerMovement : MonoBehaviour
             moveSound.Stop();
         }
     }
+
+    public bool isMoving()
+    {
+        return _moveVector == Vector3.zero ? true : false;
+    }
+    public float ReturnSpeed()
+    {
+        return _nowSpeed;
+    }
 }
 

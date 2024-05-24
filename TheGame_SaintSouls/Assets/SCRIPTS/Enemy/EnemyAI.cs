@@ -12,8 +12,9 @@ public class EnemyAI : MonoBehaviour
     public float timeToScream;
     public float speedToScream;
     public float distanceToScream;
-    public AudioSource FightSound;
     public AudioSource Music;
+    public AudioClip StepSound;
+    public AudioClip FightSound;
 
     public Animator animator;
     private NavMeshAgent _navMeshAgent;
@@ -21,6 +22,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        Music.Play();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         PickNewPatrolPoint();
     }
@@ -84,8 +86,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Screamer()
     {
-        player.transform.LookAt(gameObject.transform);
         player.enabled = false;
+        var camera = player.GetComponentInChildren<CameraRotation>().enabled = false;
+        player.transform.LookAt(gameObject.transform);
         _navMeshAgent.isStopped = true;
         transform.LookAt(player.transform);
         StartCoroutine(MoveToPlayer());
@@ -93,17 +96,20 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator MoveToPlayer()
     {
-        float time = 0;
         animator.SetTrigger("Attack");
-        while(time <= timeToScream)
+        /*while(time <= timeToScream)
         {
             time += Time.deltaTime;
             gameObject.transform.position += new Vector3(0, speedToScream * Time.deltaTime, 0);
             yield return new WaitForEndOfFrame();
         }
+        */
+        player.GetComponent<HeadBobController>().enabled = false;
+        player.GetComponent<AudioSource>().enabled = false;
         Music.Stop();
-        FightSound.Play();
+        Music.PlayOneShot(FightSound, 1f);
         Invoke("Delay", 2);
+        yield return new WaitForEndOfFrame();
     }
     private void Delay()
     {
