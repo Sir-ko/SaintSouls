@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ScaryTrigger
   - NoReturnTrigger
+  - EasyMusic
   layers:
   - Default
   - TransparentFX

@@ -334,6 +334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &90533324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2426980464350437171, guid: 11488317b791ae843aac071f45f470f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 90533320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &187728652
 GameObject:
   m_ObjectHideFlags: 0
@@ -5102,6 +5108,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
         type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 1767013928}
+    - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 90533324}
+    - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 870330884}
@@ -5377,7 +5393,7 @@ GameObject:
   - component: {fileID: 1767013929}
   - component: {fileID: 1767013928}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

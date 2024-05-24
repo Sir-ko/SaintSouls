@@ -16,14 +16,21 @@ public class MenuManager : MonoBehaviour
     public Slider MouseSensetivity;
     public Slider OverallVolume;
 
-    public float volume = 0.5f;
+    public Toggle EasyMode;
+
+    public AudioSource Music;
+
     public int difficulty = 0; //0 = normal; 1 = easy
 
     public void Start()
     {
         PlayerPrefs.SetInt("WasLastSceneMenu", 1);
-        PlayerPrefs.SetFloat("MouseSensetivity", 0.5f);
         MouseSensetivity.value = 0.5f;
+        if (PlayerPrefs.GetFloat("Volume", 1982) == 1982)
+            OverallVolume.value = 0.7f;
+        else
+            OverallVolume.value = PlayerPrefs.GetFloat("Volume");
+        Music.volume = OverallVolume.value;
     }
     public void Awake()
     {
@@ -40,7 +47,11 @@ public class MenuManager : MonoBehaviour
     {
         AnimatorCamera.SetTrigger("PlayCamera");
         AnimatorDoor.SetTrigger("PlayDoor");
+        float a = MouseSensetivity.value;
+        float b = OverallVolume.value;
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat("MouseSensetivity", a);
+        PlayerPrefs.SetFloat("Volume", b);
         PlayerPrefs.SetInt("Save", 1);
         PlayerPrefs.SetInt("NewGame", 1);
         PlayerPrefs.Save();
@@ -64,8 +75,10 @@ public class MenuManager : MonoBehaviour
 
     public void ChangePreferences()
     {
+        difficulty = EasyMode.isOn ? 1 : 0;
         PlayerPrefs.SetFloat("MouseSensetivity", MouseSensetivity.value);
-        PlayerPrefs.SetFloat("Volume", volume);
+        PlayerPrefs.SetFloat("Volume", OverallVolume.value);
+        Music.volume = OverallVolume.value;
         PlayerPrefs.SetInt("Difficulty", difficulty);
         PlayerPrefs.Save();
     }

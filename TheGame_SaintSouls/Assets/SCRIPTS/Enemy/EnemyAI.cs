@@ -15,13 +15,18 @@ public class EnemyAI : MonoBehaviour
     public AudioSource Music;
     public AudioClip StepSound;
     public AudioClip FightSound;
+    public GameObject image;
+
 
     public Animator animator;
     private NavMeshAgent _navMeshAgent;
     private bool _isPlayerNoticed;
+    private bool isScreaming = false;
 
     void Start()
     {
+        player = FindObjectOfType<PlayerMovement>();
+        isScreaming = false;
         Music.Play();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         PickNewPatrolPoint();
@@ -78,6 +83,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ShouldScream()
     {
+        if(isScreaming) return;
         if(Vector3.Distance(gameObject.transform.position, player.gameObject.transform.position) <= distanceToScream)
         {
             Screamer();
@@ -86,33 +92,29 @@ public class EnemyAI : MonoBehaviour
 
     private void Screamer()
     {
-        player.enabled = false;
-        var camera = player.GetComponentInChildren<CameraRotation>().enabled = false;
+        isScreaming = true;
+        player.GetComponentInChildren<CameraRotation>().enabled = false;
         player.transform.LookAt(gameObject.transform);
         _navMeshAgent.isStopped = true;
-        transform.LookAt(player.transform);
-        StartCoroutine(MoveToPlayer());
-    }
-
-    private IEnumerator MoveToPlayer()
-    {
+        //transform.LookAt(player.transform);
+        Camera.main.transform.LookAt(gameObject.transform.position + new Vector3(0, 1, 0));
+        player.enabled = false;
         animator.SetTrigger("Attack");
-        /*while(time <= timeToScream)
-        {
-            time += Time.deltaTime;
-            gameObject.transform.position += new Vector3(0, speedToScream * Time.deltaTime, 0);
-            yield return new WaitForEndOfFrame();
-        }
-        */
         player.GetComponent<HeadBobController>().enabled = false;
         player.GetComponent<AudioSource>().enabled = false;
-        Music.Stop();
-        Music.PlayOneShot(FightSound, 1f);
-        Invoke("Delay", 2);
-        yield return new WaitForEndOfFrame();
+        Invoke("Delay", 2.7f);
+        Invoke("ChangeScene", 1.8f);
     }
     private void Delay()
     {
         SceneManager.LoadScene(5);
+    }
+    public void ChangeScene()
+    {
+        image.SetActive(true);
+    }
+    public void PlaySoundOfAttack()
+    {
+        Music.PlayOneShot(FightSound);
     }
 }

@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isMoving()
     {
-        return _moveVector == Vector3.zero ? true : false;
+        return (_moveVector != Vector3.zero) && (Time.timeScale != 0) ? true : false;
     }
     public float ReturnSpeed()
     {
