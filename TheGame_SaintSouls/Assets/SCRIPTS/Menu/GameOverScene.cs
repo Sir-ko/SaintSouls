@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScene : MonoBehaviour
 {
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void Retry()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("Save", 1));
+        SceneManager.LoadScene(1);
     }
     public void ToMainMenu()
     {

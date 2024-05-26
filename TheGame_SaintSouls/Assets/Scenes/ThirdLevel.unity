@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5d2b18457e3cb264b837f99f0a5b6b46,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -5139,7 +5140,7 @@ PrefabInstance:
     - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
         type: 3}
       propertyPath: distanceToScream
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
         type: 3}

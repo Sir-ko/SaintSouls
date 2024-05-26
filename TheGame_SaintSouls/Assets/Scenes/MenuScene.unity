@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1c786bfb290db934d9ce2d439e01fa19,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -4659,10 +4660,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553478656, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553709160, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
         type: 3}
       propertyPath: m_Name
       value: Torch (Working)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5443423186012125831, guid: 5233a2537e09a29488521080a063343c,
         type: 3}
@@ -5713,10 +5729,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553478656, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553709160, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
         type: 3}
       propertyPath: m_Name
       value: Torch (Working) (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5443423186012125831, guid: 5233a2537e09a29488521080a063343c,
         type: 3}
@@ -9590,10 +9621,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553478656, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553709160, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
         type: 3}
       propertyPath: m_Name
       value: Torch (Working) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5233a2537e09a29488521080a063343c, type: 3}
@@ -10765,10 +10811,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553478656, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553709160, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
         type: 3}
       propertyPath: m_Name
       value: Torch (Working) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3050542943553713406, guid: 5233a2537e09a29488521080a063343c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5233a2537e09a29488521080a063343c, type: 3}

@@ -27,7 +27,8 @@ public class NextSceneTrigger : MonoBehaviour
             int currentScene = SceneManager.GetActiveScene().buildIndex;
             Player = FindObjectOfType<PlayerMovement>().gameObject;
             BaseToTpTo = FindObjectOfType<BaseToTpToScript>().transform;
-            if (PlayerPrefs.GetInt("PreviousLevel", 1) <= currentScene)
+            bool a = PlayerPrefs.GetInt("PreviousLevel", 1) <= currentScene;
+            if (Mathf.Abs(PlayerPrefs.GetInt("PreviousLevel", 1) - SceneManager.GetActiveScene().buildIndex) == 1 || PlayerPrefs.GetInt("WasLastSceneMenu") == 0)
             {
                 PlayerPrefs.SetInt("PreviousLevel", currentScene);
                 PlayerPrefs.Save();

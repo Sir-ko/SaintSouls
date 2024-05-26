@@ -84,7 +84,7 @@ public class EnemyAI : MonoBehaviour
     private void ShouldScream()
     {
         if(isScreaming) return;
-        if(Vector3.Distance(gameObject.transform.position, player.gameObject.transform.position) <= distanceToScream)
+        if(Vector3.Distance(gameObject.transform.position, player.gameObject.transform.position) <= distanceToScream && _isPlayerNoticed)
         {
             Screamer();
         }
@@ -94,14 +94,13 @@ public class EnemyAI : MonoBehaviour
     {
         isScreaming = true;
         player.GetComponentInChildren<CameraRotation>().enabled = false;
-        player.transform.LookAt(gameObject.transform);
+        transform.LookAt(player.transform.position + new Vector3(0, 1, 0));
         _navMeshAgent.isStopped = true;
-        //transform.LookAt(player.transform);
         Camera.main.transform.LookAt(gameObject.transform.position + new Vector3(0, 1, 0));
         player.enabled = false;
-        animator.SetTrigger("Attack");
         player.GetComponent<HeadBobController>().enabled = false;
         player.GetComponent<AudioSource>().enabled = false;
+        animator.SetTrigger("Attack");
         Invoke("Delay", 2.7f);
         Invoke("ChangeScene", 1.8f);
     }

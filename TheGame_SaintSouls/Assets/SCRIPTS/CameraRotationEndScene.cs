@@ -22,6 +22,7 @@ public class CameraRotationEndScene : MonoBehaviour
     public AudioClip kill;
     public void EndScene()
     {
+        PlayerPrefs.SetInt("PreviousLevel", 5);
         playerMovement.enabled = false;
         cameraRotation.enabled = false;
         Enemy.SetActive(true);
