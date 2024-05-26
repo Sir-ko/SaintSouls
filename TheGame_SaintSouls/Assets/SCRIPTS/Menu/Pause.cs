@@ -17,6 +17,7 @@ public class Pause : MonoBehaviour
     public AudioSource Music;
     private AudioSource enemySource;
     private AudioSource playerSource;
+    private AudioSource easyMusic;
 
     public float volume = 0.5f;
 
@@ -25,10 +26,16 @@ public class Pause : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         _isPaused = false;
         _pausePanel.SetActive(false);
-        enemySource = FindObjectOfType<EnemyAI>().gameObject.GetComponent<AudioSource>();
-        playerSource = player.GetComponent<AudioSource>();
+        if(SceneManager.GetActiveScene().buildIndex != 4) 
+            enemySource = FindObjectOfType<EnemyAI>().gameObject.GetComponent<AudioSource>();
+        playerSource = player.GetComponent<AudioSource>(); 
+        var a = FindObjectOfType<EasyMusic>();
+        if(a != null)
+            easyMusic = a.GetComponent<AudioSource>();
         MouseSensetivity.value = PlayerPrefs.GetFloat("MouseSensetivity", 0.5f);
         OverallVolume.value = PlayerPrefs.GetFloat("Volume", 0.7f);
     }
@@ -50,6 +57,8 @@ public class Pause : MonoBehaviour
     public void PauseGame()
     {
         _pausePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0f;
         _isPaused = true;
     }
@@ -71,13 +80,21 @@ public class Pause : MonoBehaviour
     {
         return _isPaused;
     }
+
+    public void ToggleHeadbob()
+    {
+        bool a = player.GetComponent<HeadBobController>().enable;
+        player.GetComponent<HeadBobController>().enable = !a; 
+    }
     public void ChangePreferences()
     {
         PlayerPrefs.SetFloat("MouseSensetivity", MouseSensetivity.value);
         PlayerPrefs.SetFloat("Volume", OverallVolume.value);
         Music.volume = OverallVolume.value;
-        enemySource.volume = OverallVolume.value;
+        if (SceneManager.GetActiveScene().buildIndex != 4)
+            enemySource.volume = OverallVolume.value;
         playerSource.volume = OverallVolume.value;
+        if(easyMusic != null) easyMusic.volume = OverallVolume.value;
         playerCamera.Change_nowSpeed();
         PlayerPrefs.Save();
     }

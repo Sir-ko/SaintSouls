@@ -12,18 +12,17 @@ public class NextSceneTrigger : MonoBehaviour
     {
         Player = FindObjectOfType<PlayerMovement>().gameObject;
         BaseToTpTo = FindObjectOfType<BaseToTpToScript>().transform;
-        if(SceneManager.GetActiveScene().buildIndex != 0)
-            SceneManager.sceneLoaded += OnLoadCallback;
+        SceneManager.sceneLoaded += OnLoadCallback;
     }
     private void OnTriggerEnter(Collider other)
     {
-        PlayerPrefs.SetInt("WasLastSceneMenu", 0);
+        PlayerPrefs.SetInt("WasLastSceneMenu", SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void OnLoadCallback(Scene scene, LoadSceneMode sceneMode)
     {
-        if (PlayerPrefs.GetInt("WasLastSceneMenu") == 0)
+        if (PlayerPrefs.GetInt("WasLastSceneMenu") != 0)
         {
             int currentScene = SceneManager.GetActiveScene().buildIndex;
             Player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -35,9 +34,9 @@ public class NextSceneTrigger : MonoBehaviour
             }
             else
             {
-                Player.active = false;
+                Player.SetActive(false);
                 Player.transform.position = BaseToTpTo.position;
-                Player.active = true;
+                Player.SetActive(true);
                 Debug.Log("madeTP");
             }
         }

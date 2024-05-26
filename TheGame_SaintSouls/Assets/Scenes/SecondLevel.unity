@@ -166,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 4221592763241844695, guid: e50740098f7e0ac45814ab86830c1f50,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4221592763241844695, guid: e50740098f7e0ac45814ab86830c1f50,
         type: 3}
@@ -176,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 4221592763241844695, guid: e50740098f7e0ac45814ab86830c1f50,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4221592763241844695, guid: e50740098f7e0ac45814ab86830c1f50,
         type: 3}
@@ -268,6 +268,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.364
       objectReference: {fileID: 0}
+    - target: {fileID: 6192492979400926508, guid: e50740098f7e0ac45814ab86830c1f50,
+        type: 3}
+      propertyPath: m_Range
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7138605838351820112, guid: e50740098f7e0ac45814ab86830c1f50,
         type: 3}
       propertyPath: orthographic size
@@ -327,6 +332,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2744944985972090629, guid: 11488317b791ae843aac071f45f470f6,
+        type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 1759783478}
     - target: {fileID: 2744944985972090629, guid: 11488317b791ae843aac071f45f470f6,
         type: 3}
       propertyPath: player
@@ -458,6 +468,12 @@ GameObject:
 --- !u!1 &158090394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5212244505114257638, guid: 11488317b791ae843aac071f45f470f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 158090392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &158090395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2426980464350437171, guid: 11488317b791ae843aac071f45f470f6,
     type: 3}
   m_PrefabInstance: {fileID: 158090392}
   m_PrefabAsset: {fileID: 0}
@@ -803,13 +819,7 @@ PrefabInstance:
     - target: {fileID: 843636629167050397, guid: 409c2ccde8a10f54588755383aa88ed0,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
-        'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tand
-        more ...\n\tFrom animation clip 'Jump Attack'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3011219352468607833, guid: 409c2ccde8a10f54588755383aa88ed0,
         type: 3}
@@ -923,9 +933,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
         type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 1759783478}
+    - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 158090395}
+    - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 28046400}
+    - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
+        type: 3}
+      propertyPath: distanceToScream
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7525531697131745463, guid: 409c2ccde8a10f54588755383aa88ed0,
         type: 3}
       propertyPath: patrolPoints.Array.size
@@ -2016,7 +2041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518978519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: 1.85, z: 1.997}
+  m_LocalPosition: {x: 151.7, y: 1.85, z: 5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2189,6 +2214,7 @@ GameObject:
   - component: {fileID: 1759783479}
   - component: {fileID: 1759783478}
   - component: {fileID: 1759783480}
+  - component: {fileID: 1759783481}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -2316,6 +2342,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28308792921e680448c951a2340764ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1759783481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759783477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9ad411c0b076241a8bdaf2e49010b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1772876234

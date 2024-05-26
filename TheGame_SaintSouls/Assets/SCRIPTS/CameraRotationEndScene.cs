@@ -18,6 +18,8 @@ public class CameraRotationEndScene : MonoBehaviour
     public GameObject Enemy;
     public GameObject BlackSreen;
     public GameObject torch;
+    public AudioSource Music;
+    public AudioClip kill;
     public void EndScene()
     {
         playerMovement.enabled = false;
@@ -34,6 +36,7 @@ public class CameraRotationEndScene : MonoBehaviour
         Quaternion startValueRotation = Camera.main.transform.rotation;
         Vector3 startValueEnemy = Enemy.transform.position;
         Quaternion startValueRotationEnemy = Enemy.transform.rotation;
+        FindObjectOfType<EndSceneMusic>().Scream();
         while (time < duration)
         {
             Camera.main.transform.position = Vector3.Lerp(startValue, endPosition.position, time / duration);
@@ -44,8 +47,8 @@ public class CameraRotationEndScene : MonoBehaviour
             Enemy.transform.position += Vector3.right * Time.deltaTime;
             yield return null;
         }
-        
         BlackSreen.SetActive(true);
+        Music.PlayOneShot(kill);
         yield return new WaitForSecondsRealtime(2);
         SceneManager.LoadScene(0);
     }

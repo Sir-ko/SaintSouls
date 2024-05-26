@@ -24,12 +24,11 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         PlayerPrefs.SetInt("WasLastSceneMenu", 1);
         MouseSensetivity.value = 0.5f;
-        if (PlayerPrefs.GetFloat("Volume", 1982) == 1982)
-            OverallVolume.value = 0.7f;
-        else
-            OverallVolume.value = PlayerPrefs.GetFloat("Volume");
+        OverallVolume.value = PlayerPrefs.GetFloat("Volume", 0.7f);
         Music.volume = OverallVolume.value;
     }
     public void Awake()
@@ -49,7 +48,9 @@ public class MenuManager : MonoBehaviour
         AnimatorDoor.SetTrigger("PlayDoor");
         float a = MouseSensetivity.value;
         float b = OverallVolume.value;
+        int diff = difficulty;
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("Difficulty", diff);
         PlayerPrefs.SetFloat("MouseSensetivity", a);
         PlayerPrefs.SetFloat("Volume", b);
         PlayerPrefs.SetInt("Save", 1);

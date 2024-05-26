@@ -9,7 +9,6 @@ public class DialogeController : MonoBehaviour
     public TextMeshProUGUI DialogeText;
     public TextMeshProUGUI InstructionsText;
     public GameObject NoGoTrigger;
-    public Animator CameraAnimator;
     public GameObject Player;
     public GameObject pointOfStart;
     public GameObject PauseMenu;
