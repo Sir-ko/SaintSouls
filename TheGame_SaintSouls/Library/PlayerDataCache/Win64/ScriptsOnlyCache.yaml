@@ -39,8 +39,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -352,8 +354,6 @@ ScriptsOnlyBuild:
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -1005,7 +1005,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 0ab36576f466871104757e7857152e7a
+      Hash: c93518265a50996f89c000ade2320be6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyAI
@@ -1443,7 +1443,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 5475315ff04a3429e22bfbd3f798b21c
+      Hash: fa3a609a2b5776ca84c897caba7a1a1c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1599,7 +1599,7 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: f5836ce4cad0f957e73f1f7c6de45cb5
+      Hash: 6b3568f177b29517f9d0be4f84b3307e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FireingTorch
@@ -1725,4 +1725,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/ThirdLevel.unity
   - Assets/Scenes/EndGame.unity
   - Assets/Scenes/GameOverScene.unity
-  playerPath: F:/The Game/TheGame_SaintSouls.exe
+  playerPath: F:/The Game (Final)/TheGame_SaintSouls.exe

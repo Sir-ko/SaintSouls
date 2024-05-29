@@ -24,12 +24,15 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
+        PlayerPrefs.SetInt("ShouldTP", 0);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        PlayerPrefs.SetInt("JustBeenDead", 0);
         PlayerPrefs.SetInt("WasLastSceneMenu", 1);
         MouseSensetivity.value = 0.5f;
         OverallVolume.value = PlayerPrefs.GetFloat("Volume", 0.7f);
         Music.volume = OverallVolume.value;
+        Music.Play();
     }
     public void Awake()
     {
@@ -51,7 +54,10 @@ public class MenuManager : MonoBehaviour
         int diff = difficulty;
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Difficulty", diff);
+        PlayerPrefs.SetInt("ShouldTP", 0);
         PlayerPrefs.SetFloat("MouseSensetivity", a);
+        PlayerPrefs.SetInt("JustBeenDead", 0);
+        PlayerPrefs.SetInt("WasLastSceneMenu", 1);
         PlayerPrefs.SetFloat("Volume", b);
         PlayerPrefs.SetInt("Save", 1);
         PlayerPrefs.SetInt("NewGame", 1);

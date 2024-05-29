@@ -58,11 +58,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.38
-  m_Speed: 6
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -92,13 +92,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   player: {fileID: 0}
-  viewAngle: 135
+  viewAngle: 100
   timeToScream: 1.3
   speedToScream: 1
   distanceToScream: 5
   Music: {fileID: 0}
   StepSound: {fileID: 8300000, guid: d46e59cf089339945b7d53e62906c94d, type: 3}
   FightSound: {fileID: 8300000, guid: 9a877b7f0330fae48b9a9774ca225b2f, type: 3}
+  ScreamSound: {fileID: 8300000, guid: e91f64348e78e7d45957b7dfefe66d4f, type: 3}
+  CryForHelp: {fileID: 8300000, guid: 8f4fe64b232c2764f8ccd052a30c09eb, type: 3}
   image: {fileID: 0}
   animator: {fileID: 843636629167050397}
 --- !u!82 &3011219352468607833
@@ -114,7 +116,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 04a674694bf9b7945aa54aa40f511017, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.3
   Loop: 1
   Mute: 0
   Spatialize: 0

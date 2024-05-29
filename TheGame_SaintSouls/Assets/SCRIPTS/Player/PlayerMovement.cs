@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float acseleration;
     public AudioSource moveSound;
+    public AudioSource heartRateAudio;
     public GameObject Player;
     public GameObject PauseMenu;
     public GameObject SettingsMenu;
@@ -46,10 +47,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) 
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
             _nowSpeed = acseleration;
-        else 
+            moveSound.pitch = 1.3f;
+        }
+        else
+        {
             _nowSpeed = speed;
+            moveSound.pitch = 1.0f;
+        }
+        _moveVector.Normalize();
         _characterController.Move(_moveVector * _nowSpeed * Time.fixedDeltaTime);
     }
 
@@ -96,6 +104,16 @@ public class PlayerMovement : MonoBehaviour
     public float ReturnSpeed()
     {
         return _nowSpeed;
+    }
+    public void StartHeartRate()
+    {
+        if(heartRateAudio.isPlaying) return;
+        heartRateAudio.Play();
+        Debug.Log("HeartRate Started");
+    }
+    public void StopHeartRate()
+    {
+        heartRateAudio.Stop();
     }
 }
 

@@ -35,6 +35,7 @@ public class LevelController : MonoBehaviour
     }
     private void Update()
     {
+        /*
         if(Input.GetKeyDown(KeyCode.L)) //для отладки
         {
             LoadNextLevel();
@@ -43,5 +44,6 @@ public class LevelController : MonoBehaviour
         {
             LoadPreviousLevel();
         }
+        */
     }
 }

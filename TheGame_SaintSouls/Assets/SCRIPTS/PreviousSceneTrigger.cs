@@ -7,7 +7,7 @@ public class PreviousSceneTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        PlayerPrefs.GetInt("PreviousLevel", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("ShouldTP", 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

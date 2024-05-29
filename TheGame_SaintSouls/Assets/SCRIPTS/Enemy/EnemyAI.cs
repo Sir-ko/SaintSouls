@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour
     public AudioSource Music;
     public AudioClip StepSound;
     public AudioClip FightSound;
+    public AudioClip ScreamSound;
+    public AudioClip CryForHelp;
     public GameObject image;
 
 
@@ -23,20 +25,26 @@ public class EnemyAI : MonoBehaviour
     private bool _isPlayerNoticed;
     private bool isScreaming = false;
 
+    bool hasCryed = false;
+
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
         isScreaming = false;
-        Music.Play();
+        if(Music.enabled)
+            Music.Play();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         PickNewPatrolPoint();
     }
 
     void Update()
     {
-        NoticePlayerUpdate();
-        ChaseUpdate();
-        PatrolUpdate();
+        if (_navMeshAgent.enabled == true)
+        {
+            NoticePlayerUpdate();
+            ChaseUpdate();
+            PatrolUpdate();
+        }
         ShouldScream();
     }
 
@@ -51,6 +59,8 @@ public class EnemyAI : MonoBehaviour
         {
             if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
             {
+                hasCryed = false;
+                player.StopHeartRate();
                 PickNewPatrolPoint();
             }
         }
@@ -68,6 +78,12 @@ public class EnemyAI : MonoBehaviour
                 if (hit.collider.gameObject == player.gameObject)
                 {
                     _isPlayerNoticed = true;
+                    if (!hasCryed)
+                    {
+                        Music.PlayOneShot(CryForHelp);
+                        hasCryed = true;
+                    }
+                    player.StartHeartRate();
                 }
             }
         }
@@ -92,9 +108,13 @@ public class EnemyAI : MonoBehaviour
 
     private void Screamer()
     {
+        StartCoroutine(changePosition());
+        Music.PlayOneShot(ScreamSound);
+        player.StopHeartRate();
         isScreaming = true;
         player.GetComponentInChildren<CameraRotation>().enabled = false;
-        transform.LookAt(player.transform.position + new Vector3(0, 1, 0));
+        _navMeshAgent.enabled = false;
+        transform.LookAt(player.transform.position);
         _navMeshAgent.isStopped = true;
         Camera.main.transform.LookAt(gameObject.transform.position + new Vector3(0, 1, 0));
         player.enabled = false;
@@ -103,6 +123,17 @@ public class EnemyAI : MonoBehaviour
         animator.SetTrigger("Attack");
         Invoke("Delay", 2.7f);
         Invoke("ChangeScene", 1.8f);
+    }
+    public IEnumerator changePosition()
+    {
+        var direction = player.transform.position - transform.position;
+        float newTime = 0f;
+        while (newTime <= 0.5f)
+        {
+            newTime += Time.deltaTime;
+            transform.position += direction * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
     }
     private void Delay()
     {

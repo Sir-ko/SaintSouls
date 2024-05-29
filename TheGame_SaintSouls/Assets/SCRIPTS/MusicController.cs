@@ -5,9 +5,9 @@ using UnityEngine;
 public class MusicController : MonoBehaviour
 {
     private EasyMusic easyMusic;
-    void Start()
+    void Awake()
     {
-        easyMusic = FindObjectOfType<EasyMusic>();
+       easyMusic = FindObjectOfType<EasyMusic>();
        if(PlayerPrefs.GetInt("Difficulty") == 1)
         {
             if (easyMusic != null)

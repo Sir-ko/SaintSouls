@@ -22,24 +22,14 @@ public class NextSceneTrigger : MonoBehaviour
 
     void OnLoadCallback(Scene scene, LoadSceneMode sceneMode)
     {
-        if (PlayerPrefs.GetInt("WasLastSceneMenu") != 0)
+        if (PlayerPrefs.GetInt("ShouldTP") == 1)
         {
-            int currentScene = SceneManager.GetActiveScene().buildIndex;
             Player = FindObjectOfType<PlayerMovement>().gameObject;
             BaseToTpTo = FindObjectOfType<BaseToTpToScript>().transform;
-            bool a = PlayerPrefs.GetInt("PreviousLevel", 1) <= currentScene;
-            if (Mathf.Abs(PlayerPrefs.GetInt("PreviousLevel", 1) - SceneManager.GetActiveScene().buildIndex) == 1 || PlayerPrefs.GetInt("WasLastSceneMenu") == 0)
-            {
-                PlayerPrefs.SetInt("PreviousLevel", currentScene);
-                PlayerPrefs.Save();
-            }
-            else
-            {
-                Player.SetActive(false);
-                Player.transform.position = BaseToTpTo.position;
-                Player.SetActive(true);
-                Debug.Log("madeTP");
-            }
+            Player.SetActive(false);
+            Player.transform.position = BaseToTpTo.position;
+            Player.SetActive(true);
+            PlayerPrefs.SetInt("ShouldTP", 0);
         }
     }
 }

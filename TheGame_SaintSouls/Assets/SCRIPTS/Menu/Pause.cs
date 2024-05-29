@@ -57,6 +57,7 @@ public class Pause : MonoBehaviour
     public void PauseGame()
     {
         _pausePanel.SetActive(true);
+        AudioListener.pause = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
@@ -65,6 +66,9 @@ public class Pause : MonoBehaviour
 
     public void ResumeGame()
     {
+        AudioListener.pause = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         _settingsPanel.SetActive(false);
         _pausePanel.SetActive(false);
         Time.timeScale = 1.0f;

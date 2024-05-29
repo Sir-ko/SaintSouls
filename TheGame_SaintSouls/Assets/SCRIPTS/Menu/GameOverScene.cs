@@ -13,7 +13,7 @@ public class GameOverScene : MonoBehaviour
     }
     public void Retry()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("Save"));
     }
     public void ToMainMenu()
     {
